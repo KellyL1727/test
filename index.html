@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Saigon Wedding</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap');
+
+    :root {
+      --ivory: #f8f4ed;
+      --cream: #eee6d8;
+      --burgundy: #671f2b;
+      --gold: #b79257;
+      --ink: #292321;
+      --muted: #746b65;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 6vw;
+      background: rgba(248, 244, 237, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(103, 31, 43, .1);
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      color: var(--burgundy);
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 130px 7vw 80px;
+      background:
+        linear-gradient(rgba(39, 25, 20, .22), rgba(39, 25, 20, .22)),
+        url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1800&q=85") center/cover;
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 850px;
+    }
+
+    .kicker {
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(72px, 12vw, 150px);
+      line-height: .82;
+      margin-bottom: 28px;
+    }
+
+    .hero .date {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+    }
+
+    .hero .scroll {
+      margin-top: 60px;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 110px 8vw;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--burgundy);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    .intro h2 {
+      font-size: clamp(46px, 6vw, 78px);
+      line-height: .95;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      line-height: 1.45;
+    }
+
+    .photo-placeholder {
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(103, 31, 43, .85), rgba(183, 146, 87, .65)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, .08) 0 1px, transparent 1px 12px);
+    }
+
+    .photo-placeholder span {
+      border: 1px solid rgba(255, 255, 255, .55);
+      padding: 16px 24px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7vw;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .story h2 {
+      font-size: 62px;
+      line-height: .95;
+    }
+
+    .story p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .days {
+      background: var(--cream);
+    }
+
+    .days-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 55px;
+    }
+
+    .days-header h2 {
+      font-size: 70px;
+      margin-bottom: 15px;
+    }
+
+    .events {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--ivory);
+      padding: 34px;
+      min-height: 470px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .day-number {
+      color: var(--burgundy);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+    }
+
+    .card h3 {
+      font-size: 42px;
+      line-height: .95;
+      margin: 18px 0;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .card .mini-photo {
+      height: 145px;
+      margin: auto -34px -34px;
+      background:
+        linear-gradient(135deg, rgba(103, 31, 43, .78), rgba(183, 146, 87, .55)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, .1) 0 1px, transparent 1px 12px);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .card:nth-child(1) .mini-photo {
+  background:
+    linear-gradient(rgba(103,31,43,.2), rgba(103,31,43,.2)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPRaYn4-thTBtSG1e0dXAj6p8cnnGSRXJh5jMdwaISyw&s=10") center/cover;
+}
+    .card:nth-child(2) .mini-photo {
+  background:
+    linear-gradient(rgba(103,31,43,.2), rgba(103,31,43,.2)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoQRW-DMGeTSiQTnNbuZzDHfdQ8GkKG3wNSG1Pit7RAw&s=10") center/cover;
+}
+    .card:nth-child(3) .mini-photo {
+  background:
+    linear-gradient(rgba(103,31,43,.2), rgba(103,31,43,.2)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qgw7PbucnR0S7c9EJjDPeNLie6PT0a-KfZeoxQPZbg&s=10") center bottom/cover;
+}
+
+    .details {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .details h2 {
+      text-align: center;
+      font-size: 68px;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 30px;
+      padding: 25px 0;
+      border-top: 1px solid rgba(41, 35, 33, .16);
+    }
+
+    .detail-row strong {
+      color: var(--burgundy);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 11px;
+    }
+
+    .detail-row div {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .rsvp {
+      background: var(--burgundy);
+      color: white;
+      text-align: center;
+    }
+
+    .rsvp h2 {
+      font-size: 75px;
+      margin-bottom: 15px;
+    }
+
+    .rsvp p {
+      opacity: .8;
+      max-width: 560px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 27px;
+      border: 1px solid rgba(255, 255, 255, .6);
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: 11px;
+    }
+
+    footer {
+      padding: 30px 8vw;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        padding: 17px 5vw;
+      }
+
+      nav a {
+        margin-left: 12px;
+        font-size: 9px;
+      }
+
+      .story,
+      .events {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 6vw;
+      }
+
+      .detail-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero h1 {
+        font-size: 72px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">G & J</div>
+    <div>
+      <a href="#story">Our Story</a>
+      <a href="#weekend">The Weekend</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="kicker">Together with our families and friends</div>
+      <h1>Gillian<br>&amp; Jeffrey</h1>
+      <div class="date">Saigon · 13–15 November 2026</div>
+      <div class="scroll">Scroll to discover our story ↓</div>
+    </div>
+  </header>
+
+  <section id="story">
+    <div class="intro">
+      <div class="eyebrow">Welcome</div>
+      <h2>Three days.<br>One great love story.</h2>
+      <p>We're so happy you're joining us in Saigon to celebrate the beginning of our next chapter together.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="story">
+      <div class="photo-placeholder">
+        <span>Couple photo placeholder</span>
+      </div>
+      <div>
+        <div class="eyebrow">The Bride &amp; Groom</div>
+        <h2>Our story,<br>so far.</h2>
+        <p>It started with a chance meeting, a long conversation, and the feeling that we'd known each other much longer
+          than we actually had.</p>
+        <p>From late-night conversations to adventures across the world, our story has grown into something we're
+          incredibly grateful for.</p>
+        <p>Now we'd love to celebrate it with the people who mean the most to us and in a city close to our hearts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="days" id="weekend">
+    <div class="days-header">
+      <div class="eyebrow">The Wedding Weekend</div>
+      <h2>Come celebrate with us</h2>
+      <p>We have planned three special days to make the most of our time together in Saigon.</p>
+    </div>
+
+    <div class="events">
+      <article class="card">
+        <div class="day-number">01</div>
+        <h3>Discover<br>Saigon</h3>
+        <p>A relaxed guided tour through the city — iconic sights, hidden corners, great food, and a chance to discover the history of the bride’s family and their roots in Saigon.</p>
+        <p><strong>Morning–Afternoon</strong><br>Meeting point &amp; itinerary to follow.</p>
+        <div class="mini-photo"></div>
+      </article>
+
+      <article class="card">
+        <div class="day-number">02</div>
+        <h3>The<br>Wedding</h3>
+        <p>The big day. Join us for the ceremony, dinner, drinks, dancing and all the moments we'll remember forever.
+        </p>
+        <p><strong>Late Afternoon–Late</strong><br>Venue &amp; timings to follow.</p>
+        <div class="mini-photo"></div>
+      </article>
+
+      <article class="card">
+        <div class="day-number">03</div>
+        <h3>Farewell<br>Cruise</h3>
+        <p>One last evening together on the water. A dinner cruise through Saigon as our way of saying thank you for
+          travelling so far to celebrate with us.</p>
+        <p><strong>Evening</strong><br>Boat, dinner &amp; sunset to follow.</p>
+        <div class="mini-photo"></div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="details">
+      <div class="eyebrow" style="text-align:center">Good to know</div>
+      <h2>Weekend details</h2>
+      <div class="detail-row">
+        <strong>Dates</strong>
+        <div>13–15 November 2026</div>
+      </div>
+      <div class="detail-row">
+        <strong>Location</strong>
+        <div>Ho Chi Minh City (Saigon), Vietnam</div>
+      </div>
+      <div class="detail-row">
+        <strong>Dress code</strong>
+        <div>Wedding day: Smart casual. Other events: Relaxed and comfortable.</div>
+      </div>
+      <div class="detail-row">
+        <strong>Travel</strong>
+        <div>Hotel suggestions, airport information and local recommendations will be added here.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp" id="rsvp">
+    <div class="eyebrow" style="color:#d9bc88">We'd love to have you</div>
+    <h2>Will you join us?</h2>
+    <p>Your presence means the world to us. Please let us know if you'll be celebrating with us in Saigon.</p>
+    <a class="button" href="#">RSVP — Coming Soon</a>
+  </section>
+
+  <footer>
+    With love, Gillian &amp; Jeffrey · Saigon
+  </footer>
+
+</body>
+
+</html>
